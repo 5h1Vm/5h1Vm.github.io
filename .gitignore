@@ -1,0 +1,41 @@
+# Portfolio deploy rules.
+# Only the live site ships to GitHub. Everything else in this folder
+# (raw event photos, CTF challenge files, dev notes, resume source) stays local.
+
+# 1) ignore everything at the root by default
+/*
+
+# 2) allow the site itself
+!/.gitignore
+!/index.html
+!/Resume_Shivam.pdf
+!/robots.txt
+!/css/
+!/css/**
+!/js/
+!/js/**
+!/images/
+!/images/**
+!/assets/
+!/assets/**
+
+# 3) inside the allowed folders, keep these out
+/js/telemetry.js
+/js/live-hud.js
+# raw media never ships: only cropped, renamed copies in /images/ go live
+/images/**/*.mp4
+/images/**/*.mov
+/images/[0-9]*.*
+
+# 4) spelled out for safety (already covered by rule 1): personal data and notes
+/*.md
+/*.txt
+!/robots.txt
+/Resume_Shivam.tex
+**/Thumbs.db
+**/Desktop.ini
+**/~$*
+**/*.tmp
+**/.DS_Store
+**/.vscode/
+**/.idea/
